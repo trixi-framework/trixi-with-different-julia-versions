@@ -27,16 +27,10 @@ Running
 ```bash
 ../setup.sh julia-1.8
 ```
-will install OrdinaryDiffEq.jl v6.19.3 and Trixi.jl v0.4.44. For Trixi.jl it is
-the current version (as of 2022-08-23), while for OrdinaryDiffEq.jl it is a
-version before Julia-1.8-specific changes to the precompilation setup were made.
+will install OrdinaryDiffEq.jl v6.24.0 and Trixi.jl v0.4.44, each of which is
+the current version (as of 2022-08-23).
 The first argument `julia-1.8` is the `which`-expanded Julia executable that
 will be used.
-
-*Note: If you try to install OrdinaryDiffEq.jl at v6.19.3 it will fail
-precompilation, probably due to some backwards-incompatible changes in upstream
-dependencies and/or insufficient compat restrictions. Use the provided manifest
-files instead.*
 
 ### Instantiating from existing Project.toml/Manifest.toml
 First, copy [Project.toml](Project.toml) and the relevant `Manifest.toml` file
