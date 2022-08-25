@@ -24,7 +24,5 @@ echo
 echo "################################################################################"
 echo "Instantiating..."
 echo "################################################################################"
-time -p \
-  JULIA_DEPOT_PATH=$DEPOT_PATH \
-  $JULIA_EXECUTABLE --project=. -e \
-  "using Pkg; Pkg.instantiate()"
+set -x
+JULIA_DEPOT_PATH=$DEPOT_PATH  $JULIA_EXECUTABLE --project=. -e "using Pkg; Pkg.instantiate()"

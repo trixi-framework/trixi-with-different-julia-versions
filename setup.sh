@@ -30,16 +30,14 @@ echo
 echo "################################################################################"
 echo "Installing OrdinaryDiffEq.jl..."
 echo "################################################################################"
-time -p \
-  JULIA_DEPOT_PATH=$DEPOT_PATH \
-  $JULIA_EXECUTABLE --project=. -e \
+set -x
+JULIA_DEPOT_PATH=$DEPOT_PATH $JULIA_EXECUTABLE --project=. -e \
   "using Pkg; Pkg.add(name=\"OrdinaryDiffEq\", version=\"$ORDINARYDIFFEQ_VERSION\")"
 
 echo
 echo "################################################################################"
 echo "Installing Trixi.jl..."
 echo "################################################################################"
-time -p \
-  JULIA_DEPOT_PATH=$DEPOT_PATH \
-  $JULIA_EXECUTABLE --project=. -e \
+set -x
+JULIA_DEPOT_PATH=$DEPOT_PATH $JULIA_EXECUTABLE --project=. -e \
   "using Pkg; Pkg.add(name=\"Trixi\", version=\"$TRIXI_VERSION\")"
