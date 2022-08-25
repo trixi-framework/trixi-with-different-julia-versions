@@ -66,3 +66,6 @@ elixir found in this repository.
 The first argument `julia-1.8` is the `which`-expanded Julia executable that
 will be used. The second and subsequent arguments will be passed to the Julia
 executable, e.g., to disable bounds checking.
+
+There is also a script `runall.sh` that is to be run *from the repo root
+folder*. It needs to be edited manually, but allows to run multiple trials in a loop.
