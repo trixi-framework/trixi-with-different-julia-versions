@@ -1,5 +1,11 @@
 # Trixi performance tests with Julia 1.7 vs. 1.8
 
+A collection of scripts for semi-automated performance tests to compare
+different Julia versions for running a
+[Trixi.jl](https://github.com/trixi-framework/Trixi.jl) simulation, including timings
+for loading the relevant packages Trixi.jl and
+[OrdinaryDiffEq.jl](https://github.com/SciML/OrdinaryDiffEq.jl).
+
 The scripts in this repository are written such that they need to be executed
 from the working directory in which the tests are to be run. For example, if you
 want to run tests with Julia 1.7 and 1.8, you could create two folders
