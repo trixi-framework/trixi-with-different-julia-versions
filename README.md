@@ -75,3 +75,13 @@ executable, e.g., to disable bounds checking.
 
 There is also a script `runall.sh` that is to be run *from the repo root
 folder*. It needs to be edited manually, but allows to run multiple trials in a loop.
+
+
+## Authors
+This repository was initiated by [Michael
+Schlottke-Lakemper](https://www.hlrs.de/people/schlottke-lakemper), with input
+from the [Trixi.jl authors](https://github.com/trixi-framework/Trixi.jl/blob/main/AUTHORS.md).
+
+## License
+This repository and its contents are published under the MIT license (see
+[LICENSE.md](LICENSE.md)).
