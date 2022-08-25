@@ -29,16 +29,49 @@ echo "TRIXI.JL:          $TRIXI_VERSION"
 
 echo
 echo "################################################################################"
+echo "Update registry..."
+echo "################################################################################"
+set -x
+JULIA_DEPOT_PATH=$DEPOT_PATH $JULIA_EXECUTABLE --project=. -e \
+  "using Pkg; Pkg.Registry.add(\"General\")"
+set +x
+
+echo
+echo "################################################################################"
 echo "Installing OrdinaryDiffEq.jl..."
 echo "################################################################################"
 set -x
-time -p JULIA_DEPOT_PATH=$DEPOT_PATH $JULIA_EXECUTABLE --project=. -e \
-  "using Pkg; Pkg.add(name=\"OrdinaryDiffEq\", version=\"$ORDINARYDIFFEQ_VERSION\")"
+JULIA_DEPOT_PATH=$DEPOT_PATH $JULIA_EXECUTABLE --project=. -e \
+  "
+   using Pkg
+   print(\"Adding OrdinaryDiffEq... \")
+   add_ordinarydiffeq = @elapsed Pkg.add(name=\"OrdinaryDiffEq\", version=\"$ORDINARYDIFFEQ_VERSION\", io=devnull)
+   println(\"done\")
+   print(\"Using OrdinaryDiffEq... \")
+   using_ordinarydiffeq = @elapsed using OrdinaryDiffEq
+   println(\"done\")
+   println()
+   @show add_ordinarydiffeq
+   @show using_ordinarydiffeq
+  "
+set +x
 
 echo
 echo "################################################################################"
 echo "Installing Trixi.jl..."
 echo "################################################################################"
 set -x
-time -p JULIA_DEPOT_PATH=$DEPOT_PATH $JULIA_EXECUTABLE --project=. -e \
-  "using Pkg; Pkg.add(name=\"Trixi\", version=\"$TRIXI_VERSION\")"
+JULIA_DEPOT_PATH=$DEPOT_PATH $JULIA_EXECUTABLE --project=. -e \
+  "
+   using Pkg
+   print(\"Adding Trixi... \")
+   add_trixi = @elapsed Pkg.add(name=\"Trixi\", version=\"$TRIXI_VERSION\", io=devnull)
+   println(\"done\")
+   print(\"Using Trixi... \")
+   using_trixi = @elapsed using Trixi
+   println(\"done\")
+   println()
+   @show add_trixi
+   @show using_trixi
+  "
+set +x
