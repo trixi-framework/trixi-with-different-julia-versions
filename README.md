@@ -14,7 +14,7 @@ from there as, e.g., `../ttfx.jl julia`.
 
 Unless noted otherwise, in the following all commands assume that you are
 already inside a test directory. Further, we assume that your Julia 1.7 and 1.8
-executables are available as `juila-1.7` and `juila-1.8` respectively.
+executables are available as `julia-1.7` and `julia-1.8` respectively.
 
 
 ## Setting up the package installations
