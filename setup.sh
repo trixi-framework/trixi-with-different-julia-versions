@@ -1,8 +1,10 @@
 #!/bin/bash
 
 # ORDINARYDIFFEQ_VERSION=6.19.3
-ORDINARYDIFFEQ_VERSION=6.24.0
-TRIXI_VERSION=0.4.44
+# ORDINARYDIFFEQ_VERSION=6.24.0
+ORDINARYDIFFEQ_VERSION=6.29.3
+# TRIXI_VERSION=0.4.44
+TRIXI_VERSION=0.4.50
 
 set -eo pipefail
 
@@ -15,6 +17,7 @@ if [ $? -eq 1 ]; then
   echo "ERROR: '$1' is either not executable or was not found in PATH" >&2
   exit 2
 fi
+shift
 
 DEPOT_PATH="$PWD/local_julia_depot"
 JULIA_VERSION="$($JULIA_EXECUTABLE --version | awk  '{print $3}')"
@@ -32,7 +35,7 @@ echo "##########################################################################
 echo "Update registry..."
 echo "################################################################################"
 set -x
-JULIA_DEPOT_PATH=$DEPOT_PATH $JULIA_EXECUTABLE --project=. -e \
+JULIA_DEPOT_PATH=$DEPOT_PATH $JULIA_EXECUTABLE --project=. $@ -e \
   "using Pkg; Pkg.Registry.add(\"General\")"
 set +x
 
@@ -41,7 +44,7 @@ echo "##########################################################################
 echo "Installing OrdinaryDiffEq.jl..."
 echo "################################################################################"
 set -x
-JULIA_DEPOT_PATH=$DEPOT_PATH $JULIA_EXECUTABLE --project=. -e \
+JULIA_DEPOT_PATH=$DEPOT_PATH $JULIA_EXECUTABLE --project=. $@ -e \
   "
    using Pkg
    print(\"Adding OrdinaryDiffEq... \")
@@ -61,7 +64,7 @@ echo "##########################################################################
 echo "Installing Trixi.jl..."
 echo "################################################################################"
 set -x
-JULIA_DEPOT_PATH=$DEPOT_PATH $JULIA_EXECUTABLE --project=. -e \
+JULIA_DEPOT_PATH=$DEPOT_PATH $JULIA_EXECUTABLE --project=. $@ -e \
   "
    using Pkg
    print(\"Adding Trixi... \")
