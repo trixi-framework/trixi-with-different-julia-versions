@@ -73,7 +73,7 @@ folder*. It needs to be edited manually, but allows to run multiple trials in a 
 
 ## Authors
 This repository was initiated by [Michael
-Schlottke-Lakemper](https://www.hlrs.de/people/schlottke-lakemper), with input
+Schlottke-Lakemper](https://lakemper.eu), with input
 from the [Trixi.jl authors](https://github.com/trixi-framework/Trixi.jl/blob/main/AUTHORS.md).
 
 ## License
