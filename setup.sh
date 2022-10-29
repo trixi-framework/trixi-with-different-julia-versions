@@ -6,6 +6,8 @@ ORDINARYDIFFEQ_VERSION=6.29.3
 # TRIXI_VERSION=0.4.44
 TRIXI_VERSION=0.4.50
 
+LOG_NAME=results.txt
+
 set -eo pipefail
 
 if [ $# -lt 1 ]; then
@@ -36,7 +38,12 @@ echo "Update registry..."
 echo "################################################################################"
 set -x
 JULIA_DEPOT_PATH=$DEPOT_PATH $JULIA_EXECUTABLE --project=. $@ -e \
-  "using Pkg; Pkg.Registry.add(\"General\")"
+  "
+   using Pkg; Pkg.Registry.add(\"General\")
+   open(\"$LOG_NAME\", \"a\") do f
+     println(f, \"-\"^80)
+   end
+  "
 set +x
 
 echo
@@ -56,6 +63,10 @@ JULIA_DEPOT_PATH=$DEPOT_PATH $JULIA_EXECUTABLE --project=. $@ -e \
    println()
    @show add_ordinarydiffeq
    @show using_ordinarydiffeq
+   open(\"$LOG_NAME\", \"a\") do f
+     println(f, \"add_ordinarydiffeq = \", add_ordinarydiffeq)
+     println(f, \"using_ordinarydiffeq = \", using_ordinarydiffeq)
+   end
   "
 set +x
 
@@ -76,5 +87,9 @@ JULIA_DEPOT_PATH=$DEPOT_PATH $JULIA_EXECUTABLE --project=. $@ -e \
    println()
    @show add_trixi
    @show using_trixi
+   open(\"$LOG_NAME\", \"a\") do f
+     println(f, \"add_trixi = \", add_trixi)
+     println(f, \"using_trixi = \", using_trixi)
+   end
   "
 set +x
