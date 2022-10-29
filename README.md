@@ -27,8 +27,8 @@ Running
 ```bash
 ../setup.sh julia-1.8
 ```
-will install OrdinaryDiffEq.jl v6.24.0 and Trixi.jl v0.4.44, each of which is
-the current version (as of 2022-08-23).
+will install OrdinaryDiffEq.jl v6.29.3 ~~v6.24.0~~ and Trixi.jl v0.4.50 ~~v0.4.44~~, each of which is
+the current version (as of 2022-10-29 ~~2022-08-23~~).
 The first argument `julia-1.8` is the `which`-expanded Julia executable that
 will be used.
 
