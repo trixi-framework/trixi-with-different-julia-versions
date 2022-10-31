@@ -1,4 +1,4 @@
-# Trixi performance tests with Julia 1.7 vs. 1.8
+# Trixi performance tests with different Julia versions
 
 A collection of scripts for semi-automated performance tests to compare
 different Julia versions for running a
